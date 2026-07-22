@@ -1,0 +1,11 @@
+{
+	// JSONC Entity Spec Example for Ascii Midnight Citadel Engine
+	"entity_id": "goblin_scout",
+	"display_name": "Goblin Scout",
+	"ascii_char": "g",
+	"max_health": 45,
+	/* Attached components configuration */
+	"components": [
+		"HealthComponent"
+	]
+}
