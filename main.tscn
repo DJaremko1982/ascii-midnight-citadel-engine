@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://main_scene_001"]
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://logic/systems/main_game_driver.gd" id="1_driver"]
+[ext_resource type="Script" path="res://render/ascii/ascii_grid_renderer.gd" id="2_renderer"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_driver")
+
+[node name="ASCIIGridRenderer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("2_renderer")
+grid_width = 80
+grid_height = 45
+cell_size = Vector2i(16, 16)
