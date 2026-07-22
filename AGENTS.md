@@ -6,6 +6,18 @@
 
 ---
 
+## Core Architectural Guarantees
+
+To ensure the engine remains **reusable, moddable, extensible, and break-proof**, all additions to this codebase MUST follow these principles:
+
+1. **Modularity & Addon Compatibility**: Features (e.g. ASCII shaders, AI solvers, inventory, proc-gen) must be self-contained modules or plugins. Adding or removing a plugin MUST NOT break core simulation logic.
+2. **Signal-First & EventBus Decoupling**: Nodes and systems MUST NEVER use hardcoded node paths (`get_node("../Path")`) or mutate cross-tier objects directly. State updates MUST be communicated via Godot `signal` emission or `EventBus` events.
+3. **Data-Driven Blueprints**: Game objects, items, enemies, and stats MUST be loaded from `.jsonc` or `.tres` blueprints via `BlueprintLoader`. Never hardcode game stats or magic numbers directly in GDScript.
+4. **Reflective Registry Queries**: Use `Registry` and `has_method()` / `is_instance_valid()` for entity capabilities instead of rigid class inheritance casting.
+5. **Deterministic Simulation**: All random logic MUST use `SeededRNG` and fixed tick passes via `SimClock`.
+
+---
+
 ## GDScript Formatting & Verification Rules
 
 When writing, editing, or refactoring `.gd` files in this repository, follow these verification rules:
