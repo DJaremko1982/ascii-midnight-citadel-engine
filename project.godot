@@ -20,8 +20,11 @@ McpInteractionServer="*res://mcp_interaction_server.gd"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
@@ -33,4 +36,6 @@ enabled=PackedStringArray("res://addons/godot_xterm/plugin.cfg")
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
+textures/grid_texture/signature_pixel_snap=true
 rendering_device/driver.windows="d3d12"
